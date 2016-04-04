@@ -1,0 +1,4 @@
+C:\Users\ex_xsancheza\Documents\Visual Studio 2013\Projects\Schibsted\Schibsted.Domain\bin\Debug\Shibsted.Domain.dll
+C:\Users\ex_xsancheza\Documents\Visual Studio 2013\Projects\Schibsted\Schibsted.Domain\bin\Debug\Shibsted.Domain.pdb
+C:\Users\ex_xsancheza\Documents\Visual Studio 2013\Projects\Schibsted\Schibsted.Domain\obj\Debug\Shibsted.Domain.dll
+C:\Users\ex_xsancheza\Documents\Visual Studio 2013\Projects\Schibsted\Schibsted.Domain\obj\Debug\Shibsted.Domain.pdb

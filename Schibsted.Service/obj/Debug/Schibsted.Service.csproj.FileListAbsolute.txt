@@ -1,0 +1,7 @@
+c:\users\ex_xsancheza\documents\visual studio 2013\Projects\Schibsted\Schibsted.Service\bin\Debug\Schibsted.Service.dll
+c:\users\ex_xsancheza\documents\visual studio 2013\Projects\Schibsted\Schibsted.Service\bin\Debug\Schibsted.Service.pdb
+c:\users\ex_xsancheza\documents\visual studio 2013\Projects\Schibsted\Schibsted.Service\bin\Debug\Schibsted.Domain.dll
+c:\users\ex_xsancheza\documents\visual studio 2013\Projects\Schibsted\Schibsted.Service\bin\Debug\Schibsted.Domain.pdb
+c:\users\ex_xsancheza\documents\visual studio 2013\Projects\Schibsted\Schibsted.Service\obj\Debug\Schibsted.Service.csprojResolveAssemblyReference.cache
+c:\users\ex_xsancheza\documents\visual studio 2013\Projects\Schibsted\Schibsted.Service\obj\Debug\Schibsted.Service.dll
+c:\users\ex_xsancheza\documents\visual studio 2013\Projects\Schibsted\Schibsted.Service\obj\Debug\Schibsted.Service.pdb
