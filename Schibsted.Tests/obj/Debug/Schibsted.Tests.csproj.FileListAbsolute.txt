@@ -17,3 +17,22 @@ c:\users\ex_xsancheza\documents\visual studio 2013\Projects\Schibsted\Schibsted.
 c:\users\ex_xsancheza\documents\visual studio 2013\Projects\Schibsted\Schibsted.Tests\obj\Debug\Schibsted.Tests.csprojResolveAssemblyReference.cache
 c:\users\ex_xsancheza\documents\visual studio 2013\Projects\Schibsted\Schibsted.Tests\obj\Debug\Schibsted.Tests.dll
 c:\users\ex_xsancheza\documents\visual studio 2013\Projects\Schibsted\Schibsted.Tests\obj\Debug\Schibsted.Tests.pdb
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\Schibsted.Tests.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\Schibsted.Tests.pdb
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\Schibsted.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\Schibsted.Domain.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\Schibsted.Service.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\System.Web.Http.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\Schibsted.Domain.pdb
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\Schibsted.Service.pdb
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\Schibsted.pdb
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\System.Web.Http.xml
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\System.Web.Http.WebHost.xml
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\obj\Debug\Schibsted.Tests.csprojResolveAssemblyReference.cache
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\obj\Debug\Schibsted.Tests.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\obj\Debug\Schibsted.Tests.pdb

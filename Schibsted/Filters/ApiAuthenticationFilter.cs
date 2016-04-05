@@ -36,13 +36,13 @@ namespace Schibsted.Filters
 
             if (provider != null)
             {
-                var user = provider.Authenticate(username, password);
+                var user = provider.User.Authenticate(username, password);
 
                 if (user == null)
                     return false;
                 else
                 {
-                    if (provider.IsUserAdmin(user))
+                    if (provider.User.IsUserAdmin(user))
                         return true;
                     else
                     {

@@ -22,7 +22,10 @@ namespace Schibsted
 
             createDefaultRespository();
 
+            createDefaultRoles();
+            
             createDefaultAdminUser();
+
         }
 
         protected void readWebApiConfig()
@@ -43,7 +46,22 @@ namespace Schibsted
             {
                 var service = new Service.Security.SecurityService(WebApiApplication.mainRepository);
 
-                var result = service.User.Create("admin", "1234", "ADMIN");
+                var role = service.Roles.GetByName("ADMIN");
+
+                var result = service.User.Create("admin", "1234", role);
+            }
+        }
+
+        protected void createDefaultRoles()
+        {
+            if (WebApiApplication.createDefaultAdmin)
+            {
+                var service = new Service.Security.SecurityService(WebApiApplication.mainRepository);
+
+                service.Roles.Create("ADMIN");
+                service.Roles.Create("PAGE_1");
+                service.Roles.Create("PAGE_2");
+                service.Roles.Create("PAGE_3");
             }
         }
     }

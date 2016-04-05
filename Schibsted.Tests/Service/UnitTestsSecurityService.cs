@@ -8,13 +8,17 @@ namespace Schibsted.Tests.Service
     [TestClass]
     public class UnitTestsSecurityService
     {
-        private bool createUser(string username, string password, string role)
+        private bool createUser(string Username, string Password, string Role)
         {
             IRepository mainRepository = Domain.Repository.MemoryRepository.SecurityMemoryRepository.Instance.Repository;
 
             var securityService = new SecurityService(mainRepository);
 
-            var result = securityService.User.Create(username, password, role);
+            var role = new Domain.Model.Security.Roles.Role();
+            role.Id = 1;
+            role.Name = Role;
+
+            var result = securityService.User.Create(Username, Password, role);
 
             return result;
         }
@@ -45,7 +49,7 @@ namespace Schibsted.Tests.Service
             IRepository mainRepository = Domain.Repository.MemoryRepository.SecurityMemoryRepository.Instance.Repository;
             var securityService = new SecurityService(mainRepository);
 
-            var user = securityService.Authenticate("admin", "1234");
+            var user = securityService.User.Authenticate("admin", "1234");
 
             Assert.IsNotNull(result);
         }

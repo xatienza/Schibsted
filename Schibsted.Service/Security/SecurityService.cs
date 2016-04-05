@@ -13,7 +13,6 @@ namespace Schibsted.Service.Security
 {
     public class SecurityService : Schibsted.Service.Security.ISecurityService
     {
-        private string dataBaseName = "Security";
         private IRepository mainRepository;
         private UserService userService;
         private RoleService rolesService;
@@ -38,40 +37,11 @@ namespace Schibsted.Service.Security
         protected void initService()
         {
             var userServiceOps = SecurityMemoryRepository.Instance.UserTableOps;
-            userService = new UserService(userServiceOps);
+            userService = UserService.GetInstance(userServiceOps);
 
             var roleServiceOps = SecurityMemoryRepository.Instance.RoleTableOps;
-            rolesService = new RoleService(roleServiceOps);
+            rolesService = RoleService.GetInstance(roleServiceOps);
         }
-
-        public Domain.Model.Security.Users.User Authenticate(string username, string password)
-        {
-            var allUsers = User.GetAll();
-
-            if (allUsers == null)
-                return null;
-
-            var user = allUsers.Where( u => u.UserName == username && u.Password == password).FirstOrDefault();
-
-            return user;
-        }
-
-        public bool IsUserAdmin(Domain.Model.Security.Users.User user)
-        {
-
-            if (user == null)
-                return false;
-
-            if (user.Roles == null || user.Roles.Count() == 0)
-                return false;
-
-            if (user.Roles.ConvertAll(o => (Domain.Model.Security.Roles.Role)o)
-                .Where(x => x.Name == "ADMIN").Count() == 0)
-                return false;
-            else
-                return true;
-        }
-
 
     }
 }

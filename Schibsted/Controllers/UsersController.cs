@@ -50,8 +50,13 @@ namespace Schibsted.Controllers
                 return InternalServerError(new ArgumentNullException("You have to set role"));
 
             var service = new Service.Security.SecurityService(WebApiApplication.mainRepository);
-            
-            var result = service.User.Create(user.Username, user.Password, user.Role);
+
+            var role = service.Roles.GetByName(user.Role);
+
+            if (role == null)
+                return InternalServerError(new ArgumentNullException("Role does no exists"));
+
+            var result = service.User.Create(user.Username, user.Password, role);
 
             if (result == true)
                 return Ok(); 

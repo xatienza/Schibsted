@@ -9,28 +9,61 @@ namespace Schibsted.Service.Security.Users
 {
     public class UserService
     {
+        #region Singleton instance
+
+        public static UserService GetInstance(IRepositoryTableOperations TableOps)
+        {
+        if (instance == null)
+        {
+            lock (syncRoot)
+            {
+                if (instance == null)
+                    instance = new UserService(TableOps);
+            }
+        }
+
+        return instance;
+
+        }
+
+        #endregion
+
         #region Attributes
         private IRepositoryTableOperations tableOps;
+        private static volatile UserService instance;
+        private static object syncRoot = new Object();
         #endregion
 
         #region Ctor
-        public UserService(IRepositoryTableOperations TableOps)
-        {
-            tableOps = TableOps;
-        }
+        private UserService(IRepositoryTableOperations TableOps) { tableOps = TableOps; }
+
         #endregion
 
-        public bool Create(string UserName, string Password, string Role)
+        public bool IsUserAdmin(Domain.Model.Security.Users.User user)
+        {
+
+            if (user == null)
+                return false;
+
+            if (user.Roles == null || user.Roles.Count() == 0)
+                return false;
+
+            if (user.Roles.ConvertAll(o => (Domain.Model.Security.Roles.Role)o)
+                .Where(x => x.Name == "ADMIN").Count() == 0)
+                return false;
+            else
+                return true;
+        }
+
+        public bool Create(string UserName, string Password, Domain.Model.Security.Roles.Role Role)
         {
             var result = false;
 
-            var role = new Domain.Model.Security.Roles.Role
-            {
-                Name = Role
-            };
+            if (ExistsUserName(UserName))
+                return false;
 
             var roles = new List<Domain.Model.Base.IRepositoryItem>();
-            roles.Add(role);
+            roles.Add(Role);
 
             Domain.Model.Security.Users.User newUser = new Domain.Model.Security.Users.User{
                 UserName = UserName,
@@ -83,6 +116,21 @@ namespace Schibsted.Service.Security.Users
             return result;
         }
 
+        public bool ExistsUserName(string UserName)
+        {
+            bool result = false;
+
+            if (tableOps != null)
+            {
+                var allUsers = GetAll();
+
+                if (allUsers != null)
+                    result = allUsers.Exists(u => u.UserName == UserName);
+            }
+
+            return result;
+        }
+
         public Domain.Model.Security.Users.User Read(long Id)
         {
             Domain.Model.Security.Users.User result = null;
@@ -104,6 +152,18 @@ namespace Schibsted.Service.Security.Users
             userList =  list.ConvertAll(o => (Domain.Model.Security.Users.User)o);
 
             return userList;
+        }
+
+        public Domain.Model.Security.Users.User Authenticate(string username, string password)
+        {
+            var allUsers = GetAll();
+
+            if (allUsers == null)
+                return null;
+
+            var user = allUsers.Where(u => u.UserName == username && u.Password == password).FirstOrDefault();
+
+            return user;
         }
     }
 }

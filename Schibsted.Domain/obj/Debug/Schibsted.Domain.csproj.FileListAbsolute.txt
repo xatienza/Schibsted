@@ -2,3 +2,7 @@ C:\Users\ex_xsancheza\Documents\Visual Studio 2013\Projects\Schibsted\Schibsted.
 C:\Users\ex_xsancheza\Documents\Visual Studio 2013\Projects\Schibsted\Schibsted.Domain\bin\Debug\Schibsted.Domain.pdb
 C:\Users\ex_xsancheza\Documents\Visual Studio 2013\Projects\Schibsted\Schibsted.Domain\obj\Debug\Schibsted.Domain.dll
 C:\Users\ex_xsancheza\Documents\Visual Studio 2013\Projects\Schibsted\Schibsted.Domain\obj\Debug\Schibsted.Domain.pdb
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Domain\bin\Debug\Schibsted.Domain.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Domain\bin\Debug\Schibsted.Domain.pdb
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Domain\obj\Debug\Schibsted.Domain.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Domain\obj\Debug\Schibsted.Domain.pdb
