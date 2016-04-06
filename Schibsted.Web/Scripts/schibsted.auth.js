@@ -40,6 +40,20 @@ var checkPageSecurity = function (pageRole) {
     }
 }
 
+var checkAdminPageSecurity = function () {
+    var currentCookie = getAuthCookie();
+
+    if (currentCookie === undefined)
+        redirectToLogin();
+
+    var currentUserRole = getCurrentUserRole();
+
+    if (currentUserRole != "ADMIN") {
+        alert('No tiene permisos de administrador');
+        window.location.href = '../index.html';
+    }
+}
+
 var getCurrentUser= function () {
     var currentCookie = getAuthCookie();
     return currentCookie;

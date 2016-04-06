@@ -5,10 +5,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Schibsted.Controllers
 {
-    [ApiAuthenticationFilter(true)]
+    [EnableCors("*", "*", "*")]
     [RoutePrefix("api/Roles")]
     public class RolesController : ApiController
     {
@@ -33,6 +34,7 @@ namespace Schibsted.Controllers
         }
 
         // POST api/users
+        [ApiAuthenticationFilter(true)]
         public void Post([FromBody]string value)
         {
             var service = new Service.Security.SecurityService(Domain.Repository.MemoryRepository.SecurityMemoryRepository.Instance.Repository);
@@ -42,11 +44,13 @@ namespace Schibsted.Controllers
         }
 
         // PUT api/users/5
+        [ApiAuthenticationFilter(true)]
         public void Put(int id, [FromBody]string value)
         {
         }
 
         // DELETE api/users/5
+        [ApiAuthenticationFilter(true)]
         public void Delete(int id)
         {
         }

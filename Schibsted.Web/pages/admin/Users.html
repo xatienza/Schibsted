@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Schibste Test - User's Management</title>
+    <script src="../../Scripts/jquery-1.10.2.js"></script>
+    <script src="../../Scripts/jquery.cookie.js"></script>
+    <script src="../../Scripts/schibsted.auth.js"></script>
+    <script src="../../Scripts/schibsted.users.js"></script>
+    <script src="../../Scripts/schibsted.roles.js"></script>
+</head>
+<body>
+    <h1>Schibste Test - User's Management</h1>
+
+    <div class="list">
+        <table id="users_table" border='1'>
+            <tr>
+                <th>UserName</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+    </div>
+
+    <div class="form">
+        <form name="login">
+            <ul>
+                <li>
+                    <label for="usermail">UserName</label>
+                    <input type="text" id="username" placeholder="username" required>
+                </li>
+                <li>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="password" required>
+                </li>
+                <li>
+                    <label for="role">Role</label>
+                    <select id="cmbRoles_ItemID" name="cmbRoles[ItemID]"></select>
+                </li>
+                <li>
+                    <input type="button" id="submit" value="Add">
+                </li>
+            </ul>
+        </form>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            checkAdminPageSecurity();
+            console.log("Page User's Management - ready!");
+
+            getAllUsers();
+            getAllInComboBox("#cmbRoles_ItemID");
+
+            $("#signout").click(signOut);
+        });
+    </script>
+
+</body>
+</html>

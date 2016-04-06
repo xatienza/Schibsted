@@ -200,9 +200,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
-    <Content Include="Pages\Page3.html" />
-    <Content Include="Pages\Page2.html" />
-    <Content Include="Pages\Page1.html" />
+    <Content Include="pages\admin\Users.html" />
+    <Content Include="pages\Page3.html" />
+    <Content Include="pages\Page2.html" />
+    <Content Include="pages\Page1.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -216,6 +217,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\schibsted.roles.js" />
+    <Content Include="Scripts\schibsted.users.js" />
     <Content Include="Scripts\schibsted.auth.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\app\_run.js" />

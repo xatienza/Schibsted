@@ -6,10 +6,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Schibsted.Controllers
 {
-    [ApiAuthenticationFilter(true)]
+    [EnableCors("*", "*", "*")]
     [RoutePrefix("api/Users")]
     public class UsersController : ApiController
     {
@@ -35,6 +36,7 @@ namespace Schibsted.Controllers
         }
 
         // POST api/users
+        [ApiAuthenticationFilter(true)]
         public IHttpActionResult Post([FromBody]UserRequestViewModel user)
         {
             if (user == null)
@@ -67,6 +69,7 @@ namespace Schibsted.Controllers
         // PUT api/users/Update
         [HttpPut]
         [Route("Update")]
+        [ApiAuthenticationFilter(true)]
         public IHttpActionResult Update([FromBody]UserRequestViewModel user)
         {
 
@@ -90,6 +93,7 @@ namespace Schibsted.Controllers
         }
 
         // DELETE api/users/5
+        [ApiAuthenticationFilter(true)]
         public IHttpActionResult Delete(int id)
         {
             var service = new Service.Security.SecurityService(WebApiApplication.mainRepository);
