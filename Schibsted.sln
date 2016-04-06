@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schibsted.Domain", "Schibst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schibsted.Service", "Schibsted.Service\Schibsted.Service.csproj", "{CFBEE979-13C8-41FF-B912-D0EE7D6453E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schibsted.WebSPA", "Schibsted.Web\Schibsted.WebSPA.csproj", "{C02D89F5-D0B7-47F4-8881-3E5B24A466DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{CFBEE979-13C8-41FF-B912-D0EE7D6453E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFBEE979-13C8-41FF-B912-D0EE7D6453E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFBEE979-13C8-41FF-B912-D0EE7D6453E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C02D89F5-D0B7-47F4-8881-3E5B24A466DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C02D89F5-D0B7-47F4-8881-3E5B24A466DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C02D89F5-D0B7-47F4-8881-3E5B24A466DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C02D89F5-D0B7-47F4-8881-3E5B24A466DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

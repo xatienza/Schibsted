@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Schibsted - Login Page</title>
+    <script src="Scripts/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <section class="loginform cf">
+        <form name="login">
+            <ul>
+                <li>
+                    <label for="usermail">UserName</label>
+                    <input type="text" id="username" placeholder="username" required>
+                </li>
+                <li>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="password" required>
+                </li>
+                <li>
+                    <input type="button" id="submit" value="Login">
+                </li>
+            </ul>
+        </form>
+    </section>
+
+    <script>
+
+        var signIn = function (event) {
+            var registrationUrl = "http://localhost:25759/api/Auth/SignIn";
+
+            var model = {
+                UserName: $("#username").val(),
+                Password: $("#password").val()
+            };
+
+            $.ajax({
+                type: "POST",
+                data: JSON.stringify(model),    
+                url: registrationUrl,
+                contentType: "application/json"
+            }).done(function (res) {
+                console.log('res', res);
+                // Do something with the result :)
+            });
+        };
+
+        $("#submit").click(signIn);
+
+    </script>
+</body>
+</html>
