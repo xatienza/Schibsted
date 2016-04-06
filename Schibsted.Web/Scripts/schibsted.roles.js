@@ -8,7 +8,7 @@
         url: url,
         contentType: "application/json",
         success: function (response) {
-            console.log(response); // server response
+            //console.log(response); // server response
             bindToCombo(combo, response);
         }   
     });

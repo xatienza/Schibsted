@@ -36,7 +36,7 @@ namespace Schibsted.Controllers
         }
 
         // POST api/users
-        [ApiAuthenticationFilter(true)]
+        //[ApiAuthenticationFilter(true)]
         public IHttpActionResult Post([FromBody]UserRequestViewModel user)
         {
             if (user == null)
