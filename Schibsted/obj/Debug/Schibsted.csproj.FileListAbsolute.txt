@@ -34,3 +34,6 @@ C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted\bin\System.Web.Http.WebHost.
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted\obj\Debug\Schibsted.csprojResolveAssemblyReference.cache
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted\obj\Debug\Schibsted.dll
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted\obj\Debug\Schibsted.pdb
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted\bin\System.Web.Cors.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted\bin\System.Web.Http.Cors.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted\bin\System.Web.Http.Cors.xml

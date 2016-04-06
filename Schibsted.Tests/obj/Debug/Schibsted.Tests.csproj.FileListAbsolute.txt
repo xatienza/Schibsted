@@ -36,3 +36,6 @@ C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\Newtonsoft.J
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\obj\Debug\Schibsted.Tests.csprojResolveAssemblyReference.cache
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\obj\Debug\Schibsted.Tests.dll
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\obj\Debug\Schibsted.Tests.pdb
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\System.Web.Http.Cors.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\System.Web.Cors.dll
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Tests\bin\Debug\System.Web.Http.Cors.xml
