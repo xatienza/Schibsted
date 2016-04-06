@@ -66,9 +66,9 @@
       <Project>{cfbee979-13c8-41ff-b912-d0ee7d6453e5}</Project>
       <Name>Schibsted.Service</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Schibsted\Schibsted.csproj">
+    <ProjectReference Include="..\Schibsted\Schibsted.WebAPI.csproj">
       <Project>{390F205A-F182-4586-B058-307190AA08CE}</Project>
-      <Name>Schibsted</Name>
+      <Name>Schibsted.WebAPI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

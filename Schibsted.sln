@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schibsted", "Schibsted\Schibsted.csproj", "{390F205A-F182-4586-B058-307190AA08CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schibsted.WebAPI", "Schibsted\Schibsted.WebAPI.csproj", "{390F205A-F182-4586-B058-307190AA08CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schibsted.Tests", "Schibsted.Tests\Schibsted.Tests.csproj", "{1E53FDF0-C2AB-4A49-8D7F-D363E41FE7AC}"
 EndProject

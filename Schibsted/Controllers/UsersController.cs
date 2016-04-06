@@ -14,24 +14,48 @@ namespace Schibsted.Controllers
     [RoutePrefix("api/Users")]
     public class UsersController : ApiController
     {
+
+        #region Private method
+
+        private List<Models.Security.User.UserRequestViewModel> convertToUserViewModelList(List<Domain.Model.Security.Users.User> users)
+        {
+            List<Models.Security.User.UserRequestViewModel> usersVM = users.ConvertAll(x => new Models.Security.User.UserRequestViewModel
+            {
+                Id = x.Id,
+                Username = x.UserName,
+                Password = x.Password,
+                Role = ((Domain.Model.Security.Roles.Role)x.Roles.FirstOrDefault()).Name
+            });
+
+            return usersVM;
+        }
+
+        private Models.Security.User.UserRequestViewModel convertToUserViewModel(Domain.Model.Security.Users.User user)
+        {
+            var userVM = new Models.Security.User.UserRequestViewModel
+            {
+                Id = user.Id,
+                Username = user.UserName,
+                Password = user.Password,
+                Role = ((Domain.Model.Security.Roles.Role)user.Roles.FirstOrDefault()).Name
+            };
+
+            return userVM;
+        }
+
+        #endregion
+
         #region REST Actions
         // GET api/users
         public IHttpActionResult Get()
         {
             var service = new Service.Security.SecurityService(WebApiApplication.mainRepository);
 
-            var result = service.User.GetAll();
+            var users = service.User.GetAll();
 
-            if (result != null)
+            if (users != null)
             {
-
-                List<Models.Security.User.UserRequestViewModel> usersVM = result.ConvertAll(x => new Models.Security.User.UserRequestViewModel
-                {
-                    Id = x.Id,
-                    Username = x.UserName,
-                    Password = x.Password,
-                    Role = ((Domain.Model.Security.Roles.Role)x.Roles.FirstOrDefault()).Name
-                });
+                var usersVM = convertToUserViewModelList(users); 
 
                 return Ok(usersVM);
             }
@@ -44,15 +68,9 @@ namespace Schibsted.Controllers
         {
             var service = new Service.Security.SecurityService(WebApiApplication.mainRepository);
 
-            var result = service.User.Read(id);
+            var user = service.User.Read(id);
 
-            var userVM = new Models.Security.User.UserRequestViewModel
-            {
-                Id = result.Id,
-                Username = result.UserName,
-                Password = result.Password,
-                Role = ((Domain.Model.Security.Roles.Role)result.Roles.FirstOrDefault()).Name
-            };
+            var userVM = convertToUserViewModel(user);
 
             return Ok(userVM);
         }
