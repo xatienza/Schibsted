@@ -21,14 +21,14 @@ var showAllUsers = function (users) {
         var delButton = '<button class="users_delete" id="delete' + item.Id + '" value="Delete" onclick="deleteUser(' + item.Id + ')">Delete</button>';
         var delUpdate = '<button class="users_update" id="update' + item.Id + '" value="Update" onclick="showUser(' + item.Id + ')">Update</button>';
 
-        var actions = delUpdate;
+        var actions = '';
 
-        if (item.UserName != 'admin')
-            var actions = actions + delButton;
+        if (item.Username != 'admin')
+            actions = delUpdate + delButton;
 
         $('<tr>').append(
-        $('<td>').text(item.UserName),
-        $('<td>').text(item.Id),
+        $('<td>').text(item.Username),
+        $('<td>').text(item.Role),
         $('<td>').html(actions)).appendTo('#users_table');
     });
 
@@ -68,7 +68,7 @@ var showUser = function (id) {
         contentType: "application/json",
         success: function (response) {
 
-            console.log(response);
+            //console.log(response);
             showUserForm(response);
         }
     });
@@ -81,7 +81,7 @@ var updateUser = function()
     var url = "http://localhost:25759/api/Users";
 
     var model = {
-        Id: $("#username").val(),
+        Id: $("#userId").val(),
         UserName: $("#username").val(),
         Password: $("#password").val(),
         Role: $("#cmbRoles_ItemID").find('option:selected').text()
@@ -114,18 +114,12 @@ var showUserForm = function (data) {
     
     $('.form').show();
 
-    $('#id').val(data.Id);
-    $('#username').val(data.UserName);
+    $('#userId').val(data.Id);
+    $('#username').val(data.Username);
     $('#password').val(data.Password);
 
-    $("#cmbRoles_ItemID option").each(function () {
-
-        console.log($(this).text());
-
-        if ($(this).text() == data.Role) {
-            $(this).attr('selected', 'selected');
-        }
-    });
+    $('#cmbRoles_ItemID').prop('selectedIndex', 0);
+    $("#cmbRoles_ItemID option:contains(" + data.Role + ")").prop('selected', true);
 
     $("#submit").val('Update');
     $("#submit").unbind("click");
@@ -137,10 +131,11 @@ var showAddForm = function () {
 
     $('.form').show();
 
-    $('#id').val(0);
+    $('#userId').val(0);
     $('#username').val('');
     $('#password').val('');
-    $("#cmbRoles_ItemID").val($("#cmbRoles_ItemID option:first").val());
+
+    $('#cmbRoles_ItemID').prop('selectedIndex', 0);
 
     $("#submit").val('Add');
 

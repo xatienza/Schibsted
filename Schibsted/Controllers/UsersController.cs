@@ -22,7 +22,21 @@ namespace Schibsted.Controllers
 
             var result = service.User.GetAll();
 
-            return Ok(result);
+            if (result != null)
+            {
+
+                List<Models.Security.User.UserRequestViewModel> usersVM = result.ConvertAll(x => new Models.Security.User.UserRequestViewModel
+                {
+                    Id = x.Id,
+                    Username = x.UserName,
+                    Password = x.Password,
+                    Role = ((Domain.Model.Security.Roles.Role)x.Roles.FirstOrDefault()).Name
+                });
+
+                return Ok(usersVM);
+            }
+            else
+                return InternalServerError();
         }
 
         // GET api/users/5
@@ -31,8 +45,16 @@ namespace Schibsted.Controllers
             var service = new Service.Security.SecurityService(WebApiApplication.mainRepository);
 
             var result = service.User.Read(id);
-            
-            return Ok(result);
+
+            var userVM = new Models.Security.User.UserRequestViewModel
+            {
+                Id = result.Id,
+                Username = result.UserName,
+                Password = result.Password,
+                Role = ((Domain.Model.Security.Roles.Role)result.Roles.FirstOrDefault()).Name
+            };
+
+            return Ok(userVM);
         }
 
         // POST api/users
