@@ -77,7 +77,7 @@ namespace Schibsted.Service.Security.Users
             return result;
         }
 
-        public bool Update(long Id, string Password, string Role)
+        public bool Update(long Id, string UserName, string Password, string Role)
         {
             var result = false;
             Domain.Model.Security.Users.User user = null;
@@ -88,6 +88,7 @@ namespace Schibsted.Service.Security.Users
 
                 if (user != null)
                 {
+                    user.UserName = UserName;
                     user.Password = Password;
 
                     var role = new Domain.Model.Security.Roles.Role

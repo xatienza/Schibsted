@@ -1,4 +1,5 @@
 ﻿var setCookie = function (name, data) {
+    deleteCookie('schibsted.Auth');
     var expiresDate = new Date();
     expiresDate.setTime(expiresDate.getTime() + (300 * 1000));
 
@@ -32,6 +33,8 @@ var checkPageSecurity = function (pageRole) {
         redirectToLogin();
 
     var currentUserRole = getCurrentUserRole();
+    console.log(currentUserRole);
+
 
     if (currentUserRole != "ADMIN" && currentUserRole != pageRole )
     {
@@ -70,7 +73,7 @@ var showCurrentUserName = function (container) {
 }
 
 var redirectToLogin =  function (){
-    window.location.href = '../index.html';
+    window.location.href = '/index.html';
 }
 
 var signIn = function (event) {
@@ -88,12 +91,30 @@ var signIn = function (event) {
         type: "POST",
         data: JSON.stringify(model),
         url: registrationUrl,
-        contentType: "application/json"
+        contentType: "application/json",
+        error: function OnError(xhr, errorType, exception) {
+            alert('The username or password you have entered is invalid');
+        },
     }).done(function (res) {
 
         setCookie('schibsted.Auth', res);
 
-        console.log('res', res);
+        switch(res.Role) {
+            case 'ADMIN':
+                window.location.href = 'pages/admin/users.html';
+                break;
+            case 'PAGE_1':
+                window.location.href = 'pages/Page1.html';
+                break;
+            case 'PAGE_2':
+                window.location.href = 'pages/Page2.html';
+                break;
+            case 'PAGE_3':
+                window.location.href = 'pages/Page3.html';
+                break;
+        }
+
+        //console.log('res', res);
         // Do something with the result :)
     });
 };

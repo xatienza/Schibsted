@@ -51,11 +51,15 @@ var addUser = function (event) {
         type: "POST",
         data: JSON.stringify(model),
         url: url,
-        contentType: "application/json"
+        contentType: "application/json",
+        error: function OnError(xhr, errorType, exception) {
+            responseText = jQuery.parseJSON(xhr.responseText);
+            alert(responseText.Message);
+        },
     }).done(function (res) {
         getAllUsers();
         alert('New user added');
-        
+        $('.form').hide();
     });
 }
 
@@ -78,16 +82,28 @@ var updateUser = function()
 {
     event.preventDefault();
 
-    var url = "http://localhost:25759/api/Users";
+   
 
     var model = {
-        Id: $("#userId").val(),
+        Id: $('input[type=hidden]').val(),
         UserName: $("#username").val(),
         Password: $("#password").val(),
         Role: $("#cmbRoles_ItemID").find('option:selected').text()
     };
 
-    console.log(model);
+    var url = "http://localhost:25759/api/Users/Update";
+
+    $.ajax({
+        type: "PUT",
+        data: JSON.stringify(model),
+        url: url,
+        contentType: "application/json",
+    }).done(function (res) {
+
+        getAllUsers();
+        alert('User modified');
+        $('.form').hide();
+    });
 }
 
 var deleteUser = function(id){
@@ -114,7 +130,7 @@ var showUserForm = function (data) {
     
     $('.form').show();
 
-    $('#userId').val(data.Id);
+    $('input[type=hidden]').val(data.Id);
     $('#username').val(data.Username);
     $('#password').val(data.Password);
 
@@ -131,7 +147,7 @@ var showAddForm = function () {
 
     $('.form').show();
 
-    $('#userId').val(0);
+    $('input[type=hidden]').val(0);
     $('#username').val('');
     $('#password').val('');
 

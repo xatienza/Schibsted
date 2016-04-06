@@ -75,6 +75,10 @@ namespace Schibsted.Controllers
 
             var service = new Service.Security.SecurityService(WebApiApplication.mainRepository);
 
+
+            if (service.User.ExistsUserName(user.Username))
+                return InternalServerError(new ArgumentNullException("Duplicate user"));
+
             var role = service.Roles.GetByName(user.Role);
 
             if (role == null)
@@ -98,6 +102,9 @@ namespace Schibsted.Controllers
             if (user.Id <= 0)
                 return InternalServerError(new ArgumentNullException("User Id cannot be lower than 0"));
 
+            if (String.IsNullOrEmpty(user.Username))
+                return InternalServerError(new ArgumentNullException("You have to set username"));
+
             if (String.IsNullOrEmpty(user.Password))
                 return InternalServerError(new ArgumentNullException("You have to set password"));
 
@@ -106,7 +113,13 @@ namespace Schibsted.Controllers
 
             var service = new Service.Security.SecurityService(WebApiApplication.mainRepository);
 
-            var result = service.User.Update(user.Id, user.Password, user.Role);
+            var role = service.Roles.GetByName(user.Role);
+
+            if (role == null)
+                return InternalServerError(new ArgumentNullException("Role does no exists"));
+
+            var result = service.User.Update(user.Id, user.Username, user.Password, user.Role);
+
 
             if (result == true)
                 return Ok();
