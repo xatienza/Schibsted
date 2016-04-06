@@ -69,7 +69,7 @@ namespace Schibsted.Controllers
         // PUT api/users/Update
         [HttpPut]
         [Route("Update")]
-        [ApiAuthenticationFilter(true)]
+        //[ApiAuthenticationFilter(true)]
         public IHttpActionResult Update([FromBody]UserRequestViewModel user)
         {
 
@@ -93,7 +93,7 @@ namespace Schibsted.Controllers
         }
 
         // DELETE api/users/5
-        [ApiAuthenticationFilter(true)]
+        //[ApiAuthenticationFilter(true)]
         public IHttpActionResult Delete(int id)
         {
             var service = new Service.Security.SecurityService(WebApiApplication.mainRepository);

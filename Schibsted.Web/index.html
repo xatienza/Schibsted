@@ -27,40 +27,6 @@
 
     <script>
 
-        /*var setCookie = function (userAuth) {
-            var expiresDate = new Date();
-            expiresDate.setTime(expiresDate.getTime() + (300 * 1000));
-
-            $.cookie.json = true;
-
-            if ($.cookie('schibsted.Auth') == undefined) {
-                $.cookie('schibsted.Auth', userAuth, { expires: expiresDate });
-            }
-
-        }
-
-        var signIn = function (event) {
-            var registrationUrl = "http://localhost:25759/api/Auth/SignIn";
-
-            var model = {
-                UserName: $("#username").val(),
-                Password: $("#password").val()
-            };
-
-            $.ajax({
-                type: "POST",
-                data: JSON.stringify(model),    
-                url: registrationUrl,
-                contentType: "application/json"
-            }).done(function (res) {
-
-                setCookie('schibsted.Auth', res);
-
-                console.log('res', res);
-                // Do something with the result :)
-            });
-        };*/
-
         $(document).ready(function () {
             $("#submit").click(signIn);
         });
