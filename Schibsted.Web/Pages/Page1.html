@@ -11,11 +11,15 @@
 
     <h3>Hello <span class="username>">{username}</span>!</h3>
 
+    <input type="button" id="signout" value="Sign Out">
+
     <script>
         $(document).ready(function () {
             checkPageSecurity('PAGE_1');
             showCurrentUserName('span');
             console.log("Page 1 - ready!");
+
+            $("#signout").click(signOut);
         });
     </script>
 

@@ -27,7 +27,7 @@
 
     <script>
 
-        var setCookie = function (userAuth) {
+        /*var setCookie = function (userAuth) {
             var expiresDate = new Date();
             expiresDate.setTime(expiresDate.getTime() + (300 * 1000));
 
@@ -54,14 +54,16 @@
                 contentType: "application/json"
             }).done(function (res) {
 
-                setCookie(res);
+                setCookie('schibsted.Auth', res);
 
                 console.log('res', res);
                 // Do something with the result :)
             });
-        };
+        };*/
 
-        $("#submit").click(signIn);
+        $(document).ready(function () {
+            $("#submit").click(signIn);
+        });
 
     </script>
 </body>

@@ -16,7 +16,8 @@ var readCookie = function (name) {
 }
 
 var deleteCookie = function (name) {
-    $.removeCookie(name);
+    document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;' + 'path=/';
+    //$.removeCookie('name', { path: '/' });
 }
 
 var getAuthCookie = function () {
@@ -28,7 +29,7 @@ var checkPageSecurity = function (pageRole) {
     var currentCookie = getAuthCookie();
 
     if (currentCookie === undefined)
-        window.location.href = '../index.html';
+        redirectToLogin();
 
     var currentUserRole = getCurrentUserRole();
 
@@ -53,3 +54,38 @@ var showCurrentUserName = function (container) {
     var currentUser = getCurrentUser();
     $(container).text(currentUser.Username);
 }
+
+var redirectToLogin =  function (){
+    window.location.href = '../index.html';
+}
+
+var signIn = function (event) {
+
+    event.preventDefault();
+
+    var registrationUrl = "http://localhost:25759/api/Auth/SignIn";
+
+    var model = {
+        UserName: $("#username").val(),
+        Password: $("#password").val()
+    };
+
+    $.ajax({
+        type: "POST",
+        data: JSON.stringify(model),
+        url: registrationUrl,
+        contentType: "application/json"
+    }).done(function (res) {
+
+        setCookie('schibsted.Auth', res);
+
+        console.log('res', res);
+        // Do something with the result :)
+    });
+};
+
+var signOut = function (event) {
+    event.preventDefault();
+    deleteCookie('schibsted.Auth');
+    redirectToLogin();
+};

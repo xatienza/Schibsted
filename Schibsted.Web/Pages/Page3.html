@@ -10,12 +10,16 @@
     <h1>Schibste Test - Page 3</h1>
 
     <h3>Hello <span class="username>">{username}</span>!</h3>
+    
+    <input type="button" id="signout" value="Sign Out">
 
     <script>
         $(document).ready(function () {
             checkPageSecurity('PAGE_3');
             showCurrentUserName('span');
             console.log("Page 3 - ready!");
+
+            $("#signout").click(signOut);
         });
     </script>
 

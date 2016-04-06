@@ -7,15 +7,19 @@
     <script src="../Scripts/schibsted.auth.js"></script>
 </head>
 <body>
-    <h1>Schibste Test - Page 1</h1>
+    <h1>Schibste Test - Page 2</h1>
 
     <h3>Hello <span class="username>">{username}</span>!</h3>
+
+    <input type="button" id="signout" value="Sign Out">
 
     <script>
         $(document).ready(function () {
             checkPageSecurity('PAGE_2');
             showCurrentUserName('span');
             console.log("Page 2 - ready!");
+
+            $("#signout").click(signOut);
         });
     </script>
 
