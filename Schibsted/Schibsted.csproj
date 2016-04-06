@@ -96,6 +96,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Authentication\AuthenticateViewModel.cs" />
+    <Compile Include="Models\Authentication\UserViewModel.cs" />
     <Compile Include="Models\Security\User\UserRequestViewModel.cs" />
     <Compile Include="Modules\BasicAuthHttpModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

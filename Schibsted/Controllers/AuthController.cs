@@ -28,9 +28,31 @@ namespace Schibsted.Controllers
             var result = service.User.Authenticate(credentials.Username, credentials.Password);
 
             if (result != null)
-                return Ok(result);
+                return Ok(convertToViewModelUser(result));
             else
                 return Unauthorized();
+        }
+
+        private Models.Authentication.UserViewModel convertToViewModelUser(Domain.Model.Security.Users.User authUser)
+        {
+            Models.Authentication.UserViewModel result = null;
+
+            if (authUser != null)
+                result = new UserViewModel();
+
+            result.Username = authUser.UserName;
+            result.Password = authUser.Password;
+
+            if (authUser.Roles != null && authUser.Roles.Count() > 0)
+            {
+                var userRole = authUser.Roles.FirstOrDefault();
+
+                if (userRole is Domain.Model.Security.Roles.Role)
+                    result.Role = (userRole as Domain.Model.Security.Roles.Role).Name;
+            }
+
+            return result;
+
         }
     }
 }
