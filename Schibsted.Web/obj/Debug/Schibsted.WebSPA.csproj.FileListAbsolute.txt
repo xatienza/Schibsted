@@ -60,3 +60,4 @@ C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Web\bin\System.Web.WebPages.
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Web\bin\System.Web.WebPages.Razor.xml
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Web\obj\Debug\Schibsted.Web.dll
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Web\obj\Debug\Schibsted.Web.pdb
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Web\obj\Debug\Schibsted.WebSPA.csprojResolveAssemblyReference.cache

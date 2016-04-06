@@ -4,6 +4,7 @@
     <title>Schibsted - Login Page</title>
     <script src="Scripts/jquery-1.10.2.js"></script>
     <script src="Scripts/jquery.cookie.js"></script>
+    <script src="Scripts/schibsted.auth.js"></script>
 </head>
 <body>
     <section class="loginform cf">
@@ -26,12 +27,14 @@
 
     <script>
 
-        var setCookie = function (role) {
+        var setCookie = function (userAuth) {
             var expiresDate = new Date();
             expiresDate.setTime(expiresDate.getTime() + (300 * 1000));
 
+            $.cookie.json = true;
+
             if ($.cookie('schibsted.Auth') == undefined) {
-                $.cookie('schibsted.Auth', role, { expires: expiresDate });
+                $.cookie('schibsted.Auth', userAuth, { expires: expiresDate });
             }
 
         }
@@ -51,7 +54,7 @@
                 contentType: "application/json"
             }).done(function (res) {
 
-                setCookie(res.Role);
+                setCookie(res);
 
                 console.log('res', res);
                 // Do something with the result :)
