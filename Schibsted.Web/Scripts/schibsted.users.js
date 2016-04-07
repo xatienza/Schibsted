@@ -45,16 +45,19 @@ var addUser = function (event) {
         UserName: $("#username").val(),
         Password: $("#password").val(),
         Role: $("#cmbRoles_ItemID").find('option:selected').text()
-    };    
+    };
+
+    var key = getBasicAuthKey();
 
     $.ajax({
         type: "POST",
         data: JSON.stringify(model),
         url: url,
+        error: function () { alert('Failed!'); },
+        crossDomain: true,
         contentType: "application/json",
-        error: function OnError(xhr, errorType, exception) {
-            responseText = jQuery.parseJSON(xhr.responseText);
-            alert(responseText.Message);
+        headers: {
+            "Authorization": "Basic " + key
         },
     }).done(function (res) {
         getAllUsers();
@@ -91,13 +94,20 @@ var updateUser = function()
         Role: $("#cmbRoles_ItemID").find('option:selected').text()
     };
 
+    var key = getBasicAuthKey();
+
     var url = "http://localhost:25759/api/Users/Update";
 
     $.ajax({
         type: "PUT",
         data: JSON.stringify(model),
         url: url,
+        error: function () { alert('Failed!'); },
+        crossDomain: true,
         contentType: "application/json",
+        headers: {
+            "Authorization": "Basic " + key
+        },
     }).done(function (res) {
 
         getAllUsers();
@@ -111,10 +121,17 @@ var deleteUser = function(id){
 
     var url = "http://localhost:25759/api/Users/" + id;
 
+    var key = getBasicAuthKey();
+
     $.ajax({
         type: "DELETE",
         url: url,
-        contentType: "application/json"
+        error: function () { alert('Failed!'); },
+        crossDomain: true,
+        contentType: "application/json",
+        headers: {
+            "Authorization": "Basic " + key
+        },
     }).done(function (res) {
         getAllUsers();
         alert('User delete');

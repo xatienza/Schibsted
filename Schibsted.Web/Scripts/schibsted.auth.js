@@ -1,5 +1,5 @@
 ﻿var setCookie = function (name, data) {
-    deleteCookie('schibsted.Auth');
+    deleteCookie(name);
     var expiresDate = new Date();
     expiresDate.setTime(expiresDate.getTime() + (300 * 1000));
 
@@ -57,6 +57,11 @@ var checkAdminPageSecurity = function () {
     }
 }
 
+var getBasicAuthKey = function () {
+    var key = readCookie('schibsted.Key');
+    return key;
+}
+
 var getCurrentUser= function () {
     var currentCookie = getAuthCookie();
     return currentCookie;
@@ -74,6 +79,13 @@ var showCurrentUserName = function (container) {
 
 var redirectToLogin =  function (){
     window.location.href = '/index.html';
+}
+
+var createBasicAuthKey = function (username, password) {
+    
+    var baKey = btoa(username + ":" + password)
+
+    return baKey;
 }
 
 var signIn = function (event) {
@@ -98,6 +110,10 @@ var signIn = function (event) {
     }).done(function (res) {
 
         setCookie('schibsted.Auth', res);
+
+        var bAuth = createBasicAuthKey(model.UserName, model.Password);
+
+        setCookie('schibsted.Key', bAuth);
 
         switch(res.Role) {
             case 'ADMIN':

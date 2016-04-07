@@ -6,3 +6,4 @@ C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Domain\bin\Debug\Schibsted.D
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Domain\bin\Debug\Schibsted.Domain.pdb
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Domain\obj\Debug\Schibsted.Domain.dll
 C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Domain\obj\Debug\Schibsted.Domain.pdb
+C:\Users\ex_xsancheza\Documents\Schibsted\Schibsted.Domain\obj\Debug\Schibsted.Domain.csprojResolveAssemblyReference.cache
