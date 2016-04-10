@@ -26,6 +26,8 @@ If you have Visual Studio 2013
 
   Open Schibsted.sln in Visual Studio 2013 and run the Schibsted.WebAPI and Schibsted.WebSPA applications on IIS Express.
 
+NOTE: Defaul user => Admin | password => 1234
+
 #Run the test
 
 You use the executable program MSTest.exe to run tests from the command line. This program can run any tests that can be automatically run, that is, any tests other than manual tests.
