@@ -26,7 +26,7 @@ If you have Visual Studio 2013
 
   Open Schibsted.sln in Visual Studio 2013 and run the Schibsted.WebAPI and Schibsted.WebSPA applications on IIS Express.
 
-NOTE: Defaul user => Admin | password => 1234
+NOTE: Default user => Admin | password => 1234
 
 #Run the test
 
